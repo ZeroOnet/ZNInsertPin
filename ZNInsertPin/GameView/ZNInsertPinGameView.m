@@ -90,7 +90,7 @@
         [self.arrowStrokePath appendPath:strokeBezier];
         self.centralAxisLayer.path = self.arrowStrokePath.CGPath;
         
-        CGRect currentStrokeRect = CGRectMake(strokeEndPoint.x, strokeEndPoint.y, 20.0f, 20.0f);
+        CGRect currentStrokeRect = CGRectMake(strokeEndPoint.x - kTopRoundRadius, strokeEndPoint.y - kTopRoundRadius, 20.0f, 20.0f);
         
         if ([self isIntersectedStrokedRectWithCurrentRect:currentStrokeRect]) {
             [self gameOver];
@@ -201,7 +201,7 @@
     
         [_arrowStrokePath addArcWithCenter:CGPointMake(strokeEndPoint.x, strokeEndPoint.y) radius:kTopRoundRadius startAngle:0.0f endAngle:2.0f * M_PI clockwise:YES];
         
-        [_strokeRects addObject:[NSValue valueWithCGRect:CGRectMake(strokeEndPoint.x, strokeEndPoint.y, 20.0f, 20.0f)]];
+        [_strokeRects addObject:[NSValue valueWithCGRect:CGRectMake(strokeEndPoint.x - kTopRoundRadius, strokeEndPoint.y - kTopRoundRadius, 20.0f, 20.0f)]];
     }
     
     return _arrowStrokePath;
